@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pl">
+	<head>
+		<meta charset="utf-8">
+		<title>Przykładowa Strona</title>
+		
+		<meta name="description" content="Przykładowy Opis">
+		<meta name="keywords" content="Słowa kluczowe">
+		<meta name="author" content="Gal Anonim">
+		<meta http-equiv="X-Ua-Compatible" content="IE=edge,chrome=1">
+		<style>
+			body {
+				background-color:darkslateblue;
+			}
+			p.marian {
+				font-style: italic;
+			}
+			#header {
+				width:50%;
+				margin:auto;
+				text-align:center;
+				background-color:cyan;
+				border: double 2px black;
+				font-weight:bold;
+				margin-bottom:10px
+			}
+			#stonoga {
+				width:50%;
+				text-align:center;
+				margin:auto;
+			}
+			#score {
+				width:50%;
+				margin:auto;
+				text-align:center;
+				background-color:orange;
+				border:2px solid black;
+			}
+			#better {
+				width:25%;
+				margin:auto;
+				text-align:center;
+				font-weight:900;
+				background-color:lime;
+				border:2px green dotted;
+				margin-top:4px;
+				cursor: pointer;
+
+			}
+			#better:hover {
+				background-color:green;
+			}
+		</style>
+		<script>
+			let a=0, papajtriggered=0, haspapaj=0;
+			function myFunction(){
+				a++
+				document.getElementById("demo").innerHTML = "Kliknięte stonogi: "+a;
+				if(a>=999) {
+					document.getElementById('marian').innerHTML = "WOW, SERIO NIE MASZ ŻYCIA!!!"
+				}
+				if(a>=2137 && papajtriggered==0) {
+					papajtriggered=1
+					document.getElementById("stonoga").innerHTML = '<img src="https://i.makeagif.com/media/9-23-2015/D7-l6_.gif" width="250">'
+					document.getElementById("upgrades").innerHTML = 'WRÓĆ DO STONOGI'
+					haspapaj=1
+				}
+			}
+			function myFunction2() {
+				if(a>=500 && papajtriggered==0){
+					document.getElementById("stonoga").innerHTML = '<img src="https://steamuserimages-a.akamaihd.net/ugc/498017818901258592/7B7691917C79937142E46379EA8017243C88B86F/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false" width="250">'
+					document.getElementById("upgrades").innerHTML = 'STONOGA ULEPSZONY'
+				}
+				else if(papajtriggered==1 && haspapaj==1){
+					document.getElementById("stonoga").innerHTML = '<img src="https://steamuserimages-a.akamaihd.net/ugc/498017818901258592/7B7691917C79937142E46379EA8017243C88B86F/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false" width="250">'
+					document.getElementById("upgrades").innerHTML = 'WRÓĆ DO PAPAJA'
+					haspapaj=0
+				} 
+				else if(papajtriggered==1 && haspapaj==0) {
+					document.getElementById("stonoga").innerHTML = '<img src="https://i.makeagif.com/media/9-23-2015/D7-l6_.gif" width="250">'
+					document.getElementById("upgrades").innerHTML = 'WRÓĆ DO STONOGI'
+					haspapaj=1
+				}
+				else {
+					alert('Nie jesteś jeszcze godzien');
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id='header'><p class='marian'id='marian'>SYMULATOR KLIKANIA STONOGI!!!<p></div>
+		<div><p id='stonoga' onclick="myFunction()"><img src='https://yt3.ggpht.com/ytc/AKedOLTq921OTgJ_eoi20LN5pFhdmOE8WEChLTjhPzmV8Q=s900-c-k-c0x00ffffff-no-rj' width='250'><p></div>
+		<div id='score'><p id='demo'>Klikaj stonoge ziom<p></div>
+		<div id='better' onclick="myFunction2()"><p id='upgrades' >ULEPSZ STONOGE</p></div>
+	</body>
+</html>
